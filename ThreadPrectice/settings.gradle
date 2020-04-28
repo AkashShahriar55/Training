@@ -1,0 +1,2 @@
+rootProject.name='ThreadPrectice'
+include ':app'

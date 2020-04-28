@@ -1,0 +1,2 @@
+rootProject.name='contraintLayoutPracticeKotlin'
+include ':app'

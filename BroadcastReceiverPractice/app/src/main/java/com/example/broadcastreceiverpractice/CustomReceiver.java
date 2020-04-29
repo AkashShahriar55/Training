@@ -16,6 +16,10 @@ public class CustomReceiver extends BroadcastReceiver {
 
         // get the intent action from the intent parameter
         String intentAction = intent.getAction();
+
+        //get the random no from extra
+        int rand = intent.getIntExtra("random",0);
+
         // switch for different toast message based on action
         if(intentAction != null){
             String toastMessage = "unknown intent action";
@@ -28,7 +32,7 @@ public class CustomReceiver extends BroadcastReceiver {
                     break;
                 //respond to the custom broadcast
                 case ACTION_CUSTOM_BROADCAST:
-                    toastMessage = "Custom Broadcast Received";
+                    toastMessage = "Custom Broadcast Received and the number is "+rand;
                     break;
             }
             //Display the message

@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,11 +18,15 @@ public class MainActivity extends AppCompatActivity {
     private static final String ACTION_CUSTOM_BROADCAST
             = BuildConfig.APPLICATION_ID+".ACTION_CUSTOM_BROADCAST";
 
+    private TextView message;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        message = findViewById(R.id.textView);
 
         //it specifies the types of intents a component can receive
         //it will filter out the intents based on action and category
@@ -41,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
     @Override
     protected void onDestroy() {
@@ -64,7 +72,12 @@ public class MainActivity extends AppCompatActivity {
 
         //create a custom broadcast intent
         Intent customBroadcastIntent = new Intent(ACTION_CUSTOM_BROADCAST);
+        //sending random no using extra using intent
+        int rand = new Random().nextInt(100);
+        customBroadcastIntent.putExtra("random",rand);
         //send the broadcast using LocalBroadcastManager
         LocalBroadcastManager.getInstance(this).sendBroadcast(customBroadcastIntent);
+
+        message.setText(String.valueOf(rand));
     }
 }

@@ -20,6 +20,7 @@
         </activity>
         <service android:name=".ExampleService"/>
         //to make the service only available for my app android:exported = "false"
+        <service android:name=".AnotherService"/>
     </application>
 
 </manifest>

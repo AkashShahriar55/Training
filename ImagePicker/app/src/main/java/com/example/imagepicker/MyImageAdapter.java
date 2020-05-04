@@ -106,7 +106,7 @@ public class MyImageAdapter extends RecyclerView.Adapter<MyImageAdapter.MyViewHo
                 // if the folder name is All photos then it will return all the images in the list
                 //otherwise only copy the images having the desired folder name
                 if(folderNameSearch.isEmpty() || folderNameSearch.contains("All Photos")){
-                    itemListFiltered = images; // copy all images to filtered list
+                    filteredList = images; // copy all images to filtered list
                 }
                 else{
                     // search the images having the desired folder name and copy it to a new list

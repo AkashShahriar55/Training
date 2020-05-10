@@ -3,6 +3,9 @@ package com.example.imagepicker;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +14,13 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class MyFolderAdapter extends RecyclerView.Adapter<MyFolderAdapter.MyFolderViewHolder> {
 
     // this adapter will populate the folder names on the upper side of the view
+
 
     private Context mContext;
     private ArrayList<String> folders;
@@ -26,6 +31,7 @@ public class MyFolderAdapter extends RecyclerView.Adapter<MyFolderAdapter.MyFold
         this.mContext = mContext;
         this.folders = folders;
         this.listener = listener;
+
     }
 
     @NonNull
@@ -43,6 +49,7 @@ public class MyFolderAdapter extends RecyclerView.Adapter<MyFolderAdapter.MyFold
         final String folder = folders.get(position);
 
         holder.button.setText(folder);
+
 
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +87,12 @@ public class MyFolderAdapter extends RecyclerView.Adapter<MyFolderAdapter.MyFold
 
             button = itemView.findViewById(R.id.folderButton);
         }
+    }
+
+
+    @Override
+    public void onViewDetachedFromWindow(@NonNull MyFolderViewHolder holder) {
+        super.onViewDetachedFromWindow(holder);
     }
 
     interface folderClickListener{

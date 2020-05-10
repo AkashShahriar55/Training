@@ -3,6 +3,8 @@ package com.example.imagepicker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +18,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -25,6 +28,8 @@ import com.bumptech.glide.Glide;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Objects;
 
 import javax.xml.transform.Source;
@@ -33,14 +38,18 @@ public class ImageActivity extends AppCompatActivity {
 
     ProgressBar imageLoadProgress;
     ImageView imageHolder;
+    ArrayList<Integer> resourceIds = new ArrayList<>();
+
+    RecyclerView resourceImageRcv;
+    ResourceImageAdapter resourceImageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
         imageHolder = findViewById(R.id.image_holder);
-        TextView imageName = findViewById(R.id.image_name);
         imageLoadProgress = findViewById(R.id.imageLoadProgress);
+        resourceImageRcv = findViewById(R.id.resource_file_rcv);
 
         //here the toolbar is created
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -56,13 +65,29 @@ public class ImageActivity extends AppCompatActivity {
 
 
         //set the image name and show the image using glide if image is not null
-        if (image != null) {
-            imageName.setText(image.getImageName());
-            new ShowImage(this).execute(image.getImageUri());
-        } else{
-            imageName.setText("Empty image");
-        }
+        new ShowImage(this).execute(image.getImageUri());
 
+        listRaw();
+
+        resourceImageAdapter = new ResourceImageAdapter(this,resourceIds);
+        resourceImageRcv.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        resourceImageRcv.setAdapter(resourceImageAdapter);
+
+
+
+    }
+
+    public void listRaw(){
+        Field[] fields=R.raw.class.getFields();
+        for(int count=0; count < fields.length; count++){
+            int resourceID = 0;
+            try {
+                resourceID=fields[count].getInt(fields[count]);
+                resourceIds.add(resourceID);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     // make static so that it is separate from the outer class,
@@ -89,7 +114,7 @@ public class ImageActivity extends AppCompatActivity {
             try {
                 // as Media.getBitmap is depreciated above android sdk 29
                 if(Build.VERSION.SDK_INT < 28){
-                        bitmap = MediaStore.Images.Media.getBitmap(activityWeakReference.get().getContentResolver(),uri);
+                    bitmap = MediaStore.Images.Media.getBitmap(activityWeakReference.get().getContentResolver(),uri);
                 } else{
                     // create a new source from a Uri
                     // we will use ImageDecoder for api level 29 and greater

@@ -11,19 +11,30 @@ public class Images implements Parcelable {
 
 
     private Uri imageUri;
+    private long imageId;
     private String folderName;
     private String imageName;
 
-    public Images(Uri imageUri, String folderName, String imageName) {
+    public Images(Uri imageUri, String folderName, String imageName,long imageId) {
         this.imageUri = imageUri;
         this.folderName = folderName;
         this.imageName = imageName;
+        this.imageId =imageId;
     }
 
     protected Images(Parcel in) {
         imageUri = Uri.parse(in.readString());
         folderName = in.readString();
         imageName = in.readString();
+        imageId = in.readLong();
+    }
+
+    public long getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(long imageId) {
+        this.imageId = imageId;
     }
 
     public static final Creator<Images> CREATOR = new Creator<Images>() {
@@ -72,5 +83,6 @@ public class Images implements Parcelable {
         dest.writeString(imageUri.toString());
         dest.writeString(folderName);
         dest.writeString(imageName);
+        dest.writeLong(imageId);
     }
 }

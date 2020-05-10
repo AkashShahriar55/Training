@@ -136,6 +136,7 @@ public class PickerActivity extends AppCompatActivity implements MyFolderAdapter
           MediaStore.Images.Media._ID,
                 MediaStore.Images.Media.DISPLAY_NAME,
                 MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
+                MediaStore.Images.Media.DATA
         };
 
         System.out.println(allImagesUri);
@@ -152,13 +153,16 @@ public class PickerActivity extends AppCompatActivity implements MyFolderAdapter
                     long dataId =  cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID));
                     Uri imageUri = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,dataId);
 
+                    String path = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA));
+                    System.out.println(path);
+
                     if(!folders.contains(folder)){
                         // this will add folder names to the folders list so that
                         // the folder buttons can be populated
                         folders.add(folder);
                     }
 
-                    Images image = new Images(imageUri,folder,name);
+                    Images image = new Images(imageUri,folder,name,dataId);
                     images.add(image);
 
                 }while (cursor.moveToNext());
@@ -207,5 +211,11 @@ public class PickerActivity extends AppCompatActivity implements MyFolderAdapter
         // and also scroll to the start
         imageAdapter.getFilter().filter(folders.get(folderSelected));
         mRecyclerView.scrollToPosition(0);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        imageAdapter.getThreadHandler().getLooper().quit();
     }
 }

@@ -127,7 +127,6 @@ public class MyImageAdapter extends RecyclerView.Adapter<MyImageAdapter.MyViewHo
     @Override
     public void onViewRecycled(@NonNull MyViewHolder holder) {
         holder.imageView.setImageBitmap(null);
-        holder.progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -181,7 +180,7 @@ public class MyImageAdapter extends RecyclerView.Adapter<MyImageAdapter.MyViewHo
             imageView = itemView.findViewById(R.id.pickerimage);
             imageHolder = itemView.findViewById(R.id.my_card_view);
             progressBar = itemView.findViewById(R.id.cardProgressBar);
-
+            progressBar.setVisibility(View.GONE);
         }
     }
 
@@ -218,7 +217,6 @@ public class MyImageAdapter extends RecyclerView.Adapter<MyImageAdapter.MyViewHo
                 @Override
                 public void run() {
                     if(holderWeakReference.get() != null){
-                        holderWeakReference.get().progressBar.setVisibility(View.GONE);
                         holderWeakReference.get().imageView.setImageBitmap(finalBitmap);
                     }
 

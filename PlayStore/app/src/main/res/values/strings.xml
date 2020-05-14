@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PlayStore</string>
+    <string name="title_apps">Apps</string>
+    <string name="title_today">Today</string>
+    <string name="title_games">Games</string>
+    <string name="my_very_hungry_caterpillar">My Very Hungry Caterpillar…</string>
+    <string name="todo">TODO</string>
+    <string name="_6_mb">6 mb</string>
+</resources>

@@ -1,0 +1,404 @@
+{
+	"Today":[
+		{
+			"Image" : "card.png",
+			"Tag" : "DEEP DIVE",
+			"Title": "Gain a new perspective",
+			"Footer" : "SKRWT takes your photos to a new height"
+		},
+		{
+			"Image" : "got_today.png",
+			"Tag" : "NEW LEVEL",
+			"Title": "Become a Lord of Westeros",
+			"Footer" : "Download Game of Thrones: Conquest NOW!"
+		},
+		{
+			"Image" : "ultimate_guitar_today.png",
+			"Tag" : "Editor's choice",
+			"Title": "Get the world's largest catalog of guitar, bass & ukulele chords",
+			"Footer" : "Search for any song by type, difficulty, tuning, and rating."
+		}
+	],
+	"Games" : {
+		"ForYou" : [
+			{
+				"Title" : null,
+				"Type": "Banner",
+				"AppData" : [
+					{
+						"Banner": "walkband_banner.png",
+						"Tag": "Music & Audio",
+						"Title" : "Walk Band is a music studio app",
+						"Logo": "walkband_logo.png",
+						"AppName" : "Walk Band - Multitracks Music",
+						"AppSize" : "63 mb"
+					},
+					{
+						"Banner": "freefire_banner.png",
+						"Tag": "New Updates",
+						"Title" : "Free Fire is the ultimate survival shooter game",
+						"Logo": "freefire_logo.png",
+						"AppName" : "Garena Free Fire: Wonderland",
+						"AppSize" : "41 mb"
+					},
+					{
+						"Banner": "ultimate_guitar_banner.png",
+						"Tag": "Editor's choice",
+						"Title" : "Play 15,000+ popular songs in their original sound.",
+						"Logo": "ultimate_guitar_logo.png",
+						"AppName" : "Ultimate Guitar: Chords & Tabs",
+						"AppSize" : "45 mb"
+					},
+					{
+						"Banner": "got_banner.png",
+						"Tag": "Role playing",
+						"Title" : "The fight for the Iron Throne",
+						"Logo": "got_logo.png",
+						"AppName" : "Game of Thrones: Conquest",
+						"AppSize" : "85 mb"
+					},
+					{
+						"Banner": "candy_crush_banner.png",
+						"Tag": "Casual",
+						"Title" : "Start playing Candy Crush Saga today",
+						"Logo": "candy_crush_logo.png",
+						"AppName" : "Candy Crush Saga",
+						"AppSize" : "50 mb"
+					}
+				]
+			},
+			{
+				"Title" : null,
+				"Type": "Single_item",
+				"AppData" : [
+					{
+						"Banner": "candy_crush_banner.png",
+						"Tag": "Casual",
+						"Title" : "Start playing Candy Crush Saga today",
+						"Logo": "candy_crush_logo.png",
+						"AppName" : "Candy Crush Saga",
+						"AppSize" : "50 mb"
+					},
+					{
+						"Banner": "walkband_banner.png",
+						"Tag": "Music & Audio",
+						"Title" : "Walk Band is a music studio app",
+						"Logo": "walkband_logo.png",
+						"AppName" : "Walk Band - Multitracks Music",
+						"AppSize" : "63 mb"
+					},
+					{
+						"Banner": "freefire_banner.png",
+						"Tag": "New Updates",
+						"Title" : "Free Fire is the ultimate survival shooter game",
+						"Logo": "freefire_logo.png",
+						"AppName" : "Garena Free Fire: Wonderland",
+						"AppSize" : "41 mb"
+					},
+					{
+						"Banner": "ultimate_guitar_banner.png",
+						"Tag": "Editor's choice",
+						"Title" : "Play 15,000+ popular songs in their original sound.",
+						"Logo": "ultimate_guitar_logo.png",
+						"AppName" : "Ultimate Guitar: Chords & Tabs",
+						"AppSize" : "45 mb"
+					},
+					{
+						"Banner": "got_banner.png",
+						"Tag": "Role playing",
+						"Title" : "The fight for the Iron Throne",
+						"Logo": "got_logo.png",
+						"AppName" : "Game of Thrones: Conquest",
+						"AppSize" : "85 mb"
+					}
+
+
+				]
+			},
+			{
+				"Title" : null,
+				"Type": "Single_item",
+				"AppData" : [
+					{
+						"Banner": "candy_crush_banner.png",
+						"Tag": "Casual",
+						"Title" : "Start playing Candy Crush Saga today",
+						"Logo": "candy_crush_logo.png",
+						"AppName" : "Candy Crush Saga",
+						"AppSize" : "50 mb"
+					},
+					{
+						"Banner": "ultimate_guitar_banner.png",
+						"Tag": "Editor's choice",
+						"Title" : "Play 15,000+ popular songs in their original sound.",
+						"Logo": "ultimate_guitar_logo.png",
+						"AppName" : "Ultimate Guitar: Chords & Tabs",
+						"AppSize" : "45 mb"
+					},
+					{
+						"Banner": "got_banner.png",
+						"Tag": "Role playing",
+						"Title" : "The fight for the Iron Throne",
+						"Logo": "got_logo.png",
+						"AppName" : "Game of Thrones: Conquest",
+						"AppSize" : "85 mb"
+					},
+					{
+						"Banner": "walkband_banner.png",
+						"Tag": "Music & Audio",
+						"Title" : "Walk Band is a music studio app",
+						"Logo": "walkband_logo.png",
+						"AppName" : "Walk Band - Multitracks Music",
+						"AppSize" : "63 mb"
+					},
+					{
+						"Banner": "freefire_banner.png",
+						"Tag": "New Updates",
+						"Title" : "Free Fire is the ultimate survival shooter game",
+						"Logo": "freefire_logo.png",
+						"AppName" : "Garena Free Fire: Wonderland",
+						"AppSize" : "41 mb"
+					}
+				]
+			}
+		],
+		"TopCharts" : [
+			{
+				"Title" : "Suggested for you",
+				"Type": "Single_item",
+				"AppData" : [
+					{
+						"Banner": "candy_crush_banner.png",
+						"Tag": "Casual",
+						"Title" : "Start playing Candy Crush Saga today",
+						"Logo": "candy_crush_logo.png",
+						"AppName" : "Candy Crush Saga",
+						"AppSize" : "50 mb"
+					},
+					{
+						"Banner": "ultimate_guitar_banner.png",
+						"Tag": "Editor's choice",
+						"Title" : "Play 15,000+ popular songs in their original sound.",
+						"Logo": "ultimate_guitar_logo.png",
+						"AppName" : "Ultimate Guitar: Chords & Tabs",
+						"AppSize" : "45 mb"
+					},
+					{
+						"Banner": "got_banner.png",
+						"Tag": "Role playing",
+						"Title" : "The fight for the Iron Throne",
+						"Logo": "got_logo.png",
+						"AppName" : "Game of Thrones: Conquest",
+						"AppSize" : "85 mb"
+					},
+					{
+						"Banner": "walkband_banner.png",
+						"Tag": "Music & Audio",
+						"Title" : "Walk Band is a music studio app",
+						"Logo": "walkband_logo.png",
+						"AppName" : "Walk Band - Multitracks Music",
+						"AppSize" : "63 mb"
+					},
+					{
+						"Banner": "freefire_banner.png",
+						"Tag": "New Updates",
+						"Title" : "Free Fire is the ultimate survival shooter game",
+						"Logo": "freefire_logo.png",
+						"AppName" : "Garena Free Fire: Wonderland",
+						"AppSize" : "41 mb"
+					}
+
+				]
+			},
+			{
+				"Title" : "Non-stop Action",
+				"Type": "Single_item",
+				"AppData" : [
+					{
+						"Banner": "walkband_banner.png",
+						"Tag": "Music & Audio",
+						"Title" : "Walk Band is a music studio app",
+						"Logo": "walkband_logo.png",
+						"AppName" : "Walk Band - Multitracks Music",
+						"AppSize" : "63 mb"
+					},
+					{
+						"Banner": "candy_crush_banner.png",
+						"Tag": "Casual",
+						"Title" : "Start playing Candy Crush Saga today",
+						"Logo": "candy_crush_logo.png",
+						"AppName" : "Candy Crush Saga",
+						"AppSize" : "50 mb"
+					},
+					{
+						"Banner": "ultimate_guitar_banner.png",
+						"Tag": "Editor's choice",
+						"Title" : "Play 15,000+ popular songs in their original sound.",
+						"Logo": "ultimate_guitar_logo.png",
+						"AppName" : "Ultimate Guitar: Chords & Tabs",
+						"AppSize" : "45 mb"
+					},
+					{
+						"Banner": "got_banner.png",
+						"Tag": "Role playing",
+						"Title" : "The fight for the Iron Throne",
+						"Logo": "got_logo.png",
+						"AppName" : "Game of Thrones: Conquest",
+						"AppSize" : "85 mb"
+					},
+					{
+						"Banner": "freefire_banner.png",
+						"Tag": "New Updates",
+						"Title" : "Free Fire is the ultimate survival shooter game",
+						"Logo": "freefire_logo.png",
+						"AppName" : "Garena Free Fire: Wonderland",
+						"AppSize" : "41 mb"
+					}
+
+				]
+			},
+			{
+				"Title" : "Spotlight Games",
+				"Type": "Single_item",
+				"AppData" : [
+					{
+						"Banner": "ultimate_guitar_banner.png",
+						"Tag": "Editor's choice",
+						"Title" : "Play 15,000+ popular songs in their original sound.",
+						"Logo": "ultimate_guitar_logo.png",
+						"AppName" : "Ultimate Guitar: Chords & Tabs",
+						"AppSize" : "45 mb"
+					},
+					{
+						"Banner": "walkband_banner.png",
+						"Tag": "Music & Audio",
+						"Title" : "Walk Band is a music studio app",
+						"Logo": "walkband_logo.png",
+						"AppName" : "Walk Band - Multitracks Music",
+						"AppSize" : "63 mb"
+					},
+					{
+						"Banner": "candy_crush_banner.png",
+						"Tag": "Casual",
+						"Title" : "Start playing Candy Crush Saga today",
+						"Logo": "candy_crush_logo.png",
+						"AppName" : "Candy Crush Saga",
+						"AppSize" : "50 mb"
+					},
+					{
+						"Banner": "got_banner.png",
+						"Tag": "Role playing",
+						"Title" : "The fight for the Iron Throne",
+						"Logo": "got_logo.png",
+						"AppName" : "Game of Thrones: Conquest",
+						"AppSize" : "85 mb"
+					},
+					{
+						"Banner": "freefire_banner.png",
+						"Tag": "New Updates",
+						"Title" : "Free Fire is the ultimate survival shooter game",
+						"Logo": "freefire_logo.png",
+						"AppName" : "Garena Free Fire: Wonderland",
+						"AppSize" : "41 mb"
+					}
+
+				]
+			}
+		]
+	},
+	"Apps" : [
+		{
+				"Title" : "Suggested for you",
+				"Type": "Single_item",
+				"AppData" : [
+					{
+						"Banner": "ultimate_guitar_banner.png",
+						"Tag": "Editor's choice",
+						"Title" : "Play 15,000+ popular songs in their original sound.",
+						"Logo": "ultimate_guitar_logo.png",
+						"AppName" : "Ultimate Guitar: Chords & Tabs",
+						"AppSize" : "45 mb"
+					},
+					{
+						"Banner": "walkband_banner.png",
+						"Tag": "Music & Audio",
+						"Title" : "Walk Band is a music studio app",
+						"Logo": "walkband_logo.png",
+						"AppName" : "Walk Band - Multitracks Music",
+						"AppSize" : "63 mb"
+					},
+					{
+						"Banner": "candy_crush_banner.png",
+						"Tag": "Casual",
+						"Title" : "Start playing Candy Crush Saga today",
+						"Logo": "candy_crush_logo.png",
+						"AppName" : "Candy Crush Saga",
+						"AppSize" : "50 mb"
+					},
+					{
+						"Banner": "got_banner.png",
+						"Tag": "Role playing",
+						"Title" : "The fight for the Iron Throne",
+						"Logo": "got_logo.png",
+						"AppName" : "Game of Thrones: Conquest",
+						"AppSize" : "85 mb"
+					},
+					{
+						"Banner": "freefire_banner.png",
+						"Tag": "New Updates",
+						"Title" : "Free Fire is the ultimate survival shooter game",
+						"Logo": "freefire_logo.png",
+						"AppName" : "Garena Free Fire: Wonderland",
+						"AppSize" : "41 mb"
+					}
+				]
+			},
+			{
+				"Title" : "Top free apps",
+				"Type": "Three_item_pager",
+				"AppData" : [
+					{
+						"Banner": "ultimate_guitar_banner.png",
+						"Tag": "Editor's choice",
+						"Title" : "Play 15,000+ popular songs in their original sound.",
+						"Logo": "ultimate_guitar_logo.png",
+						"AppName" : "Ultimate Guitar: Chords & Tabs",
+						"AppSize" : "45 mb"
+					},
+					{
+						"Banner": "walkband_banner.png",
+						"Tag": "Music & Audio",
+						"Title" : "Walk Band is a music studio app",
+						"Logo": "walkband_logo.png",
+						"AppName" : "Walk Band - Multitracks Music",
+						"AppSize" : "63 mb"
+					},
+					{
+						"Banner": "candy_crush_banner.png",
+						"Tag": "Casual",
+						"Title" : "Start playing Candy Crush Saga today",
+						"Logo": "candy_crush_logo.png",
+						"AppName" : "Candy Crush Saga",
+						"AppSize" : "50 mb"
+					},
+					{
+						"Banner": "got_banner.png",
+						"Tag": "Role playing",
+						"Title" : "The fight for the Iron Throne",
+						"Logo": "got_logo.png",
+						"AppName" : "Game of Thrones: Conquest",
+						"AppSize" : "85 mb"
+					},
+					{
+						"Banner": "freefire_banner.png",
+						"Tag": "New Updates",
+						"Title" : "Free Fire is the ultimate survival shooter game",
+						"Logo": "freefire_logo.png",
+						"AppName" : "Garena Free Fire: Wonderland",
+						"AppSize" : "41 mb"
+					}
+
+				]
+			}
+	]
+}

@@ -45,8 +45,7 @@ public class TodayFragment extends Fragment {
     private AdLoader adLoader;
     private TodayCardAdapter adapter;
     private boolean isNetworkConnected;
-    final ConnectivityManager connectivityManager
-            = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -73,8 +72,10 @@ public class TodayFragment extends Fragment {
     }
 
     private void checkConnectivity() {
-
+        final ConnectivityManager connectivityManager
+                = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+
             NetworkRequest.Builder builder = new NetworkRequest.Builder();
             connectivityManager.registerDefaultNetworkCallback(
                     new ConnectivityManager.NetworkCallback()

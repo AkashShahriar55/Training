@@ -2,6 +2,7 @@ package com.example.playstore.ui.today;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,10 +37,9 @@ public class TodayFragment extends Fragment {
     private TodayViewModel homeViewModel;
     private View view;
 
-    private ProgressBar loadingProgressBar;
     private List<Object> dataList;
     private AdLoader adLoader;
-    private List<UnifiedNativeAd> mNativeAds = new ArrayList<>();
+    private TodayCardAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,12 +54,11 @@ public class TodayFragment extends Fragment {
         TextView today_date = view.findViewById(R.id.today_date);
         today_date.setText(getCurrentDaye());
 
-        loadingProgressBar = view.findViewById(R.id.loading_progress);
         
         //read data from json
         MyReader reader = new MyReader(getContext());
         dataList = reader.readTodayData();
-
+        initializeRecyclerView();
 
         ConnectivityManager cm =
                 (ConnectivityManager)requireContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -67,11 +66,8 @@ public class TodayFragment extends Fragment {
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
-
         if(isConnected){
             loadNativeAds();
-        }else{
-            initializeRecyclerView();
         }
 
 
@@ -88,10 +84,9 @@ public class TodayFragment extends Fragment {
                 // A native ad loaded successfully, check if the loader has finished loading
                 //and if so, insert the ads into the list
 
-                mNativeAds.add(unifiedNativeAd);
                 if(!adLoader.isLoading()){
-                    insertAdsInDataList();
-                    initializeRecyclerView();
+                   dataList.add(0,unifiedNativeAd);
+                   adapter.notifyDataSetChanged();
                 }
             }
         }).withAdListener(new AdListener(){
@@ -101,33 +96,16 @@ public class TodayFragment extends Fragment {
                 // and if so, insert the ads into the list.
                 Log.e("MainActivity", "The previous native ad failed to load. Attempting to"
                         + " load another.");
-                if (!adLoader.isLoading()) {
-                    insertAdsInDataList();
-                    initializeRecyclerView();
-                }
             }
         }).build();
 
         // Load the Native Express ad.
-        adLoader.loadAds(new AdRequest.Builder().build(),2);
+        adLoader.loadAd(new AdRequest.Builder().build());
 
     }
 
-    private void insertAdsInDataList() {
-        if (mNativeAds.size() <= 0) {
-            return;
-        }
-
-        int offset = (dataList.size() / mNativeAds.size()) + 1;
-        int index = 0;
-        for (UnifiedNativeAd ad: mNativeAds) {
-            dataList.add(index, ad);
-            index = index + offset;
-        }
-    }
 
     private void initializeRecyclerView() {
-        loadingProgressBar.setVisibility(View.GONE);
         RecyclerView todayRV = view.findViewById(R.id.today_recyclerView);
         todayRV.hasFixedSize();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
@@ -135,7 +113,7 @@ public class TodayFragment extends Fragment {
         todayRV.setNestedScrollingEnabled(false);
         
 
-        TodayCardAdapter adapter = new TodayCardAdapter(getContext(),dataList);
+        adapter = new TodayCardAdapter(getContext(),dataList);
         todayRV.setAdapter(adapter);
     }
 

@@ -85,7 +85,6 @@ public class GamesFragment extends Fragment {
     void changeFragment(Fragment newFragment){
         // Create new fragment and transaction
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.addToBackStack(null);
         // Replace whatever is in the fragment_container view with this fragment,
         // and add the transaction to the back stack
         transaction.replace(R.id.games_fragment, newFragment);

@@ -3,7 +3,6 @@ package com.example.playstore;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,12 +25,12 @@ public class MyReader {
         this.context = context;
     }
 
-    public List<TodayData> readTodayData(){
+    public List<Object> readTodayData(){
         try {
             String json = readJsonFromAssets(fileName);
             JSONObject mainObj = new JSONObject(json);
             JSONArray todayArray = mainObj.getJSONArray("Today");
-            List<TodayData> dataList = new ArrayList<>();
+            List<Object> dataList = new ArrayList<>();
             for (int i = 0; i < todayArray.length(); i++) {
                 JSONObject itemData = todayArray.getJSONObject(i);
                 String imageRef = itemData.getString("Image");

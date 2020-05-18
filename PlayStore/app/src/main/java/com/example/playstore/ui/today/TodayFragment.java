@@ -3,7 +3,10 @@ package com.example.playstore.ui.today;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.net.NetworkRequest;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,6 +44,9 @@ public class TodayFragment extends Fragment {
     private List<Object> dataList;
     private AdLoader adLoader;
     private TodayCardAdapter adapter;
+    private boolean isNetworkConnected;
+    final ConnectivityManager connectivityManager
+            = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -60,20 +67,44 @@ public class TodayFragment extends Fragment {
         dataList = reader.readTodayData();
         initializeRecyclerView();
 
-        ConnectivityManager cm =
-                (ConnectivityManager)requireContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        checkConnectivity();
 
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        boolean isConnected = activeNetwork != null &&
-                activeNetwork.isConnectedOrConnecting();
-        if(isConnected){
-            loadNativeAds();
+
+    }
+
+    private void checkConnectivity() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            NetworkRequest.Builder builder = new NetworkRequest.Builder();
+            connectivityManager.registerDefaultNetworkCallback(
+                    new ConnectivityManager.NetworkCallback()
+                   {
+                       @Override
+                       public void onAvailable(Network network) {
+                           isNetworkConnected = true; // Global Static Variable
+                           if(dataList.get(0) instanceof UnifiedNativeAd){
+                               dataList.remove(0);
+                               loadNativeAds();
+                           }else{
+                               loadNativeAds();
+                           }
+
+                       }
+                       @Override
+                       public void onLost(Network network) {
+                           isNetworkConnected = false; // Global Static Variable
+                       }
+                   }
+
+            );
         }
-
-
-        
-
-
+        else{
+            final NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            isNetworkConnected = activeNetworkInfo.isConnected();
+            if(isNetworkConnected){
+                loadNativeAds();
+            }
+        }
     }
 
     private void loadNativeAds() {
@@ -126,4 +157,5 @@ public class TodayFragment extends Fragment {
         String days[] = {"SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"};
         return days[day-1] + " " + date + " " + (months[month]);
     }
+
 }

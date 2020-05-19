@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
 
         MobileAds.initialize(this);
+        MyAdLoader.loadAd(this);
 
         Fragment fragment = new TodayFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();

@@ -1,6 +1,7 @@
 package com.example.playstore;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,14 @@ public class SingleItemAdapter extends RecyclerView.Adapter<SingleItemAdapter.Ap
         holder.singleItemName.setText(item.getAppName());
         holder.singleItemSize.setText(item.getAppSize());
         holder.singleItemImageHolder.setImageBitmap(new MyReader(mContext).readImageFromAssets(item.getLogoReference()));
+
+        holder.singleItemImageHolder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,AppDetailsActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
 
     }
 

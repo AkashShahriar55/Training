@@ -15,7 +15,6 @@
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         android:clickable="true"
-        android:stateListAnimator="@drawable/animate"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

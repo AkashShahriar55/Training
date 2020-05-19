@@ -159,4 +159,10 @@ public class TodayFragment extends Fragment {
         return days[day-1] + " " + date + " " + (months[month]);
     }
 
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Toast.makeText(getContext(),"On pause called ",Toast.LENGTH_SHORT).show();
+    }
 }

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/apps_ad_container">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="15dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.google.android.gms.ads.formats.UnifiedNativeAdView
+                android:id="@+id/today_ad_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_ad_badge" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+                        <ImageView
+                            android:layout_gravity="start"
+                            android:id="@+id/today_ad_icon"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/app_icon" />
+                        <LinearLayout
+                            android:layout_gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/today_ad_headline"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Outdoor Explorer"
+                                android:textColor="#2B2B2B"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                            <RatingBar
+                                android:id="@+id/today_ad_rating"
+                                style="@style/Widget.AppCompat.RatingBar.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:rating="4" />
+                            <TextView
+                                android:id="@+id/today_ad_advertiser"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Google Play"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+                            <TextView
+                                android:id="@+id/today_ad_store"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Google Play"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="end|center_vertical">
+                            <TextView
+                                android:id="@+id/today_ad_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$500"
+                                android:layout_marginEnd="10dp"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                            <Button
+                                android:id="@+id/today_ad_to_call_action"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:background="@color/colorPrimary"
+                                android:text="Install"
+                                android:textColor="@color/colorWhite" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <com.google.android.gms.ads.formats.MediaView
+                        android:id="@+id/today_ad_media"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="5dp" />
+
+
+
+                    <ImageView
+                        android:id="@+id/today_ad_google_play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:src="@drawable/google_play" />
+
+                    <TextView
+                        android:id="@+id/today_ad_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:paddingLeft="50dp"
+                        android:paddingRight="50dp"
+                        android:text="Camp in the most comfortable outdoor gear around"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+            </com.google.android.gms.ads.formats.UnifiedNativeAdView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

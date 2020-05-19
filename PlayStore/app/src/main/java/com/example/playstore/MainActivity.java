@@ -2,10 +2,12 @@ package com.example.playstore;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.playstore.ui.apps.AppsFragment;
 import com.example.playstore.ui.games.GamesFragment;
 import com.example.playstore.ui.today.TodayFragment;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,6 +20,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,8 +37,15 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
-        MobileAds.initialize(this);
-        MyAdLoader.loadAd(this);
+        List<InterstitialAd> ads = MyAdLoader.getInterstitialAds();
+
+        for (InterstitialAd ad : ads){
+            if(ad != null && ad.isLoaded()){
+                ad.show();
+                break;
+            }
+        }
+
 
         Fragment fragment = new TodayFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();

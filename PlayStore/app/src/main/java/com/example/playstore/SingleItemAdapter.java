@@ -50,7 +50,7 @@ public class SingleItemAdapter extends RecyclerView.Adapter<SingleItemAdapter.Ap
         holder.singleItemImageHolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,AppDetailsActivity.class);
+                Intent intent = new Intent(mContext, FirstActivity.class);
                 mContext.startActivity(intent);
             }
         });

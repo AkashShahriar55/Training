@@ -57,6 +57,9 @@ public class ThreeItemPagerAdapter extends RecyclerView.Adapter<ThreeItemPagerAd
             holder.constraintLayout.setLayoutParams(layoutParams);
         }
 
+
+
+
     }
 
     @Override

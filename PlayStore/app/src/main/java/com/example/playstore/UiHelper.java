@@ -28,6 +28,14 @@ public class UiHelper {
         return displayMetrics.heightPixels;
     }
 
+    public float getDisplayWidth(){
+        return convertPixelsToDp(displayMetrics.widthPixels);
+    }
+
+    public float getDisplayHeight(){
+        return convertPixelsToDp(displayMetrics.heightPixels);
+    }
+
     public int getDisplayDensityInDpi(){
         return displayMetrics.densityDpi;
     }
@@ -59,6 +67,6 @@ public class UiHelper {
     }
 
     public float convertPixelsToDp(float px){
-        return px * (getDisplayDensityInDpi() / 160F);
+        return px / getDisplayDensityInDpi();
     }
 }

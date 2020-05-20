@@ -9,6 +9,7 @@ import com.example.playstore.ui.games.GamesFragment;
 import com.example.playstore.ui.today.TodayFragment;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -37,11 +38,12 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
-        List<InterstitialAd> ads = MyAdLoader.getInterstitialAds();
+        List<PublisherInterstitialAd> ads = MyAdLoader.getInterstitialAds();
 
-        for (InterstitialAd ad : ads){
-            if(ad != null && ad.isLoaded()){
-                ad.show();
+        for (PublisherInterstitialAd interstitialAd : ads){
+
+            if(interstitialAd != null && interstitialAd.isLoaded()){
+                interstitialAd.show();
                 break;
             }
         }

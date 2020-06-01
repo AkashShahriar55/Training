@@ -13,6 +13,9 @@ public class TodayData {
         this.footer = footer;
     }
 
+    public TodayData() {
+    }
+
     public String getImageReference() {
         return imageReference;
     }

@@ -1,5 +1,6 @@
 package com.example.playstore.ui.today;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -25,11 +26,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.playstore.MyReader;
 import com.example.playstore.R;
 import com.example.playstore.TodayCardAdapter;
+import com.example.playstore.TodayData;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.formats.NativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -38,13 +47,17 @@ import java.util.List;
 
 public class TodayFragment extends Fragment {
 
+    private static final String TAG = "TodayFragment";
+
     private TodayViewModel homeViewModel;
     private View view;
 
-    private List<Object> dataList;
+    private List<Object> dataList = new ArrayList<>();
     private AdLoader adLoader;
     private TodayCardAdapter adapter;
     private boolean isNetworkConnected;
+    // Access a Cloud Firestore instance from your Activity
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -62,13 +75,46 @@ public class TodayFragment extends Fragment {
 
         
         //read data from json
-        MyReader reader = new MyReader(getContext());
-        dataList = reader.readTodayData();
-        initializeRecyclerView();
+        //MyReader reader = new MyReader(getContext());
 
-        checkConnectivity();
+        loadData();
 
 
+
+
+
+
+
+    }
+
+    private void loadData() {
+        db.collection("Today_data").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for(QueryDocumentSnapshot documentSnapshot:queryDocumentSnapshots){
+                    dataList.add(documentSnapshot.toObject(TodayData.class));
+                }
+                initializeRecyclerView();
+                checkConnectivity();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart: ");
+
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 
     private void checkConnectivity() {

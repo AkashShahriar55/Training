@@ -11,6 +11,7 @@ import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -47,7 +48,7 @@ public class FirstActivity extends AppCompatActivity {
         adView = new AdView(this);
         adView.setAdUnitId(getString(R.string.adaptive_banner_ad_unit_id));
 
-        /**Step 2 - add the adView to a container and manage the view location**/
+        /**Step 2 - add the adView to a container and manage the view location
         //getting the container of the banner
         adContainerView = findViewById(R.id.ad_container_view);
         //set an id for manage the view later
@@ -61,7 +62,14 @@ public class FirstActivity extends AppCompatActivity {
         constraintSet.connect(id,ConstraintSet.BOTTOM,ConstraintSet.PARENT_ID,ConstraintSet.BOTTOM);
         constraintSet.connect(id,ConstraintSet.LEFT,ConstraintSet.PARENT_ID,ConstraintSet.LEFT);
         constraintSet.connect(id,ConstraintSet.RIGHT,ConstraintSet.PARENT_ID,ConstraintSet.RIGHT);
-        constraintSet.applyTo(adContainerView);
+        constraintSet.applyTo(adContainerView);**/
+
+
+        /**Step 2 - add the adView to a container and manage the view location**/
+        //getting the container of the banner
+        LinearLayout adContainer = findViewById(R.id.banner_holder);
+        //add the view to the container
+        adContainer.addView(adView);
 
         loadBanner();
 

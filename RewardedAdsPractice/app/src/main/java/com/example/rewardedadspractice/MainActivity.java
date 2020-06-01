@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -43,15 +44,21 @@ public class MainActivity extends AppCompatActivity {
         mShowAdBtn = findViewById(R.id.show_ad_btn);
         mLogTv = findViewById(R.id.tv_log);
         adContainerView = findViewById(R.id.ad_container_view);
+
         // Step 1 - Create an AdView and set the ad unit ID on it.
         adView = new AdView(this);
         adView.setAdUnitId(getString(R.string.adaptive_banner_ad_unit_id));
         adContainerView.addView(adView);
+
         loadBanner();
 
         mShowAdBtn.setEnabled(false);
 
         this.rewardedAd = createAndLoadRewardedAds();
+
+        adView.setAdListener(new AdListener(){
+            //Override methods to do operation when event trigger
+        });
 
     }
 

@@ -49,12 +49,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        Fragment fragment = new TodayFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.nav_host_fragment,fragment);
-        fragmentTransaction.addToBackStack(FRAGMENT_TODAY);
-        fragmentTransaction.commit();
+
 
         navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

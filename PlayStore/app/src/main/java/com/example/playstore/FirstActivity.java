@@ -52,7 +52,7 @@ public class FirstActivity extends AppCompatActivity {
         welcomeMsgTv = findViewById(R.id.welcome_tv);
 
         FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
-                .setMinimumFetchIntervalInSeconds(1)
+                .setMinimumFetchIntervalInSeconds(0)
                 .build();
         remoteConfig.setConfigSettingsAsync(configSettings);
 
@@ -123,6 +123,13 @@ public class FirstActivity extends AppCompatActivity {
                     }
                 });
 
+        Button crashBtn = findViewById(R.id.crash_button);
+        crashBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                throw new RuntimeException("Test Crash"); // Force a crash
+            }
+        });
 
     }
 

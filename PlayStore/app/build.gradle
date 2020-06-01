@@ -48,4 +48,7 @@ dependencies {
 
     //for firestore
     implementation 'com.google.firebase:firebase-firestore:21.4.3'
+
+    //remote config
+    implementation 'com.google.firebase:firebase-config:19.1.4'
 }

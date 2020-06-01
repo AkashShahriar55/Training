@@ -75,35 +75,17 @@ public class TodayFragment extends Fragment {
 
         
         //read data from json
-        //MyReader reader = new MyReader(getContext());
-
-        loadData();
-
+        MyReader reader = new MyReader(getContext());
+        dataList.addAll(reader.readTodayData());
 
 
-
+        checkConnectivity();
+        initializeRecyclerView();
 
 
 
     }
 
-    private void loadData() {
-        db.collection("Today_data").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                for(QueryDocumentSnapshot documentSnapshot:queryDocumentSnapshots){
-                    dataList.add(documentSnapshot.toObject(TodayData.class));
-                }
-                initializeRecyclerView();
-                checkConnectivity();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-            }
-        });
-    }
 
     @Override
     public void onStart() {
